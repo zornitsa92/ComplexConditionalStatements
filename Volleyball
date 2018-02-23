@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Volleyball
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string year = Console.ReadLine().ToLower();
+            double holidays = double.Parse(Console.ReadLine());
+            double weekendHome = double.Parse(Console.ReadLine());
+
+            double weekendsInYear = 48.0;
+            double sofiaWeekends = (weekendsInYear - weekendHome) * 3.0 / 4.0; 
+            double sofiaPlays = holidays * 2.0 / 3.0;
+            double totaPlays = sofiaWeekends + sofiaPlays + weekendHome;
+
+            if (year == "leap")
+            {
+                totaPlays = totaPlays * 1.15;
+            }
+
+            Console.WriteLine(Math.Truncate(totaPlays)); 
+        }
+    }
+}
