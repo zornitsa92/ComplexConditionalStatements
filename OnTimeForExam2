@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OnTimeForExam2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var examH = int.Parse(Console.ReadLine());
+            var examM = int.Parse(Console.ReadLine());
+            var arrivalH = int.Parse(Console.ReadLine());
+            var arrivalM = int.Parse(Console.ReadLine());
+
+            int examT = examH * 60 + examM;
+            int arrivalT = arrivalH * 60 + arrivalM;
+
+            int diff = arrivalT - examT;
+
+            if (diff > 0)
+            {
+                Console.WriteLine("Late");
+                if (Math.Abs(diff) >= 60)
+                {
+                    Console.WriteLine($"{Math.Abs(diff / 60)}:{Math.Abs(diff % 60):d2} hours after the start");
+
+                }
+                else
+                {
+                    Console.WriteLine($"{Math.Abs(diff)} minutes after the start");
+                }
+            }
+
+            else if (diff == 0)
+            {
+                Console.WriteLine("On time");
+            }
+            else if (Math.Abs(diff) <= 30)
+            {
+                Console.WriteLine("On time");
+                Console.WriteLine($"{Math.Abs(diff)} minutes before the start");
+            }
+
+            else
+            {
+                Console.WriteLine("early");
+                if (Math.Abs(diff) >= 60)
+                {
+                    Console.WriteLine($"{Math.Abs(diff / 60)}:{Math.Abs(diff % 60):d2} hours before the start");
+                }
+                else
+                {
+                    Console.WriteLine($"{Math.Abs(diff)} minutes before the start");
+                }
+
+            }
+        }
+    }
+}
