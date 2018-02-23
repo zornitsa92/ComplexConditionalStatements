@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FruitShop
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var product = Console.ReadLine().ToLower();
+            var day = Console.ReadLine().ToLower();
+            var quantity = double.Parse(Console.ReadLine());
+             
+            double price = 0;
+            bool error = false;
+
+            if (day == "saturday" || day == "sunday")
+            {
+                if (product == "banana")
+                {
+                    price = 2.70;
+                }
+                else if (product == "apple")
+                {
+                    price = 1.25;
+                }
+                else if (product == "orange")
+                {
+                    price = 0.90;
+                }
+                else if (product == "grapefruit")
+                {
+                    price = 1.60;
+                }
+                else if (product == "kiwi")
+                {
+                    price = 3.00;
+                }
+                else if (product == "pineapple")
+                {
+                    price = 5.60;
+                }
+                else if (product == "grapes")
+                {
+                    price = 4.20;
+                }
+                else
+                {
+                    error = true;
+                }
+                
+            }
+
+            else if (day == "monday" || day == "tuesday" || day == "wednesday" || day == "thursday" || day == "friday")
+            {
+                if (product == "banana")
+                {
+                    price = 2.50;
+                }
+                else if (product == "apple")
+                {
+                    price = 1.20;
+                }
+                else if (product == "orange")
+                {
+                    price = 0.85;
+                }
+                else if (product == "grapefruit")
+                {
+                    price = 1.45;
+                }
+                else if (product == "kiwi")
+                {
+                    price = 2.70;
+                }
+                else if (product == "pineapple")
+                {
+                    price = 5.50;
+                }
+                else if (product == "grapes")
+                {
+                    price = 3.85;
+                }
+                else
+                {
+                    error = true;
+                }
+            }
+            else
+            {
+                error = true;
+            }
+
+            if (error)
+            {
+                Console.WriteLine("error");
+            }
+            else
+            {
+                double totalPrice = price * quantity;
+                Console.WriteLine(Math.Round(totalPrice, 2));
+            }               
+        }
+    }
+}
